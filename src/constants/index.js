@@ -1,202 +1,297 @@
-const navLinks = [
-  {
-    name: "Work",
-    link: "#work",
-  },
-  {
-    name: "Experience",
-    link: "#experience",
-  },
-  {
-    name: "Skills",
-    link: "#skills",
-  },
-  {
-    name: "Testimonials",
-    link: "#testimonials",
-  },
+const words = [
+  { text: "AI Models", imgPath: "/images/ideas.svg" },
+  { text: "Concepts", imgPath: "/images/concepts.svg" },
+  { text: "LLMs", imgPath: "/images/designs.svg" },
+  { text: "Code", imgPath: "/images/code.svg" },
+  { text: "AI Models", imgPath: "/images/ideas.svg" },
+  { text: "Concepts", imgPath: "/images/concepts.svg" },
+  { text: "LLMs", imgPath: "/images/designs.svg" },
+  { text: "Code", imgPath: "/images/code.svg" },
 ];
 
-const words = [
-  { text: "Ideas", imgPath: "/images/ideas.svg" },
-  { text: "Concepts", imgPath: "/images/concepts.svg" },
-  { text: "Designs", imgPath: "/images/designs.svg" },
-  { text: "Code", imgPath: "/images/code.svg" },
-  { text: "Ideas", imgPath: "/images/ideas.svg" },
-  { text: "Concepts", imgPath: "/images/concepts.svg" },
-  { text: "Designs", imgPath: "/images/designs.svg" },
-  { text: "Code", imgPath: "/images/code.svg" },
+const navLinks = [
+  { name: "About", link: "#about" },
+  { name: "Work", link: "#work" },
+  { name: "Experience", link: "#experience" },
+  { name: "Certifications", link: "#certifications" },
+  { name: "Skills", link: "#skills" },
+  { name: "Contact", link: "#contact" },
 ];
 
 const counterItems = [
-  { value: 15, suffix: "+", label: "Years of Experience" },
-  { value: 200, suffix: "+", label: "Satisfied Clients" },
-  { value: 108, suffix: "+", label: "Completed Projects" },
-  { value: 90, suffix: "%", label: "Client Retention Rate" },
+  { value: 20, suffix: "+", label: "AI & Full-Stack Projects" },
+  { value: 40, suffix: "%", label: "Inference Latency Reduced" },
+  { value: 5, suffix: "+", label: "Production AI Systems" },
+  { value: 10, suffix: "K+", label: "Users Served" },
 ];
 
 const logoIconsList = [
+  { imgPath: "/images/logos/python-logo.svg" },
+  { imgPath: "/images/logos/tensorflow-logo.svg" },
+  { imgPath: "/images/logos/pytorch-logo.svg" },
+  { imgPath: "/images/logos/openai-logo.svg" },
+  { imgPath: "/images/logos/react-logo.svg" },
+  { imgPath: "/images/logos/nextjs-logo.svg" },
+  { imgPath: "/images/logos/nodejs-logo.svg" },
+  { imgPath: "/images/logos/typescript-logo.svg" },
+  { imgPath: "/images/logos/postgresql-logo.svg" },
+  { imgPath: "/images/logos/docker-logo.svg" },
+  { imgPath: "/images/logos/opencv-logo.svg" },
+  { imgPath: "/images/logos/firebase-logo.svg" },
+  { imgPath: "/images/logos/tailwindcss-logo.svg" },
+  { imgPath: "/images/logos/rails-logo.svg" },
+  { imgPath: "/images/logos/github-logo.svg" },
+  { imgPath: "/images/logos/linux-logo.svg" },
+];
+
+// ===== PROJECT GALLERY =====
+const projectCategories = ["All", "AI & ML", "Web Apps", "Mobile & IoT"];
+
+const projects = [
+  // AI & ML
   {
-    imgPath: "/images/logos/company-logo-1.png",
+    title: "AI Smart Document Analyzer",
+    description:
+      "OCR extraction, AI text summarization, and automatic document classification stored in PostgreSQL.",
+    imgPath: "/images/projects/ai/smart-document-analyzer.png",
+    category: "AI & ML",
+    tags: ["Python", "OCR", "NLP", "REST API"],
   },
   {
-    imgPath: "/images/logos/company-logo-2.png",
+    title: "AI Chatbot with RAG",
+    description:
+      "Retrieval-Augmented Generation chatbot using Pinecone/Chroma vector databases and LLM APIs.",
+    imgPath: "/images/projects/ai/chatbot-rag.png",
+    category: "AI & ML",
+    tags: ["LangChain", "Pinecone", "OpenAI", "RAG"],
   },
   {
-    imgPath: "/images/logos/company-logo-3.png",
+    title: "AI Fraud Detection System",
+    description:
+      "Real-time transaction fraud detection with ML models, live dashboard, and REST API alerting.",
+    imgPath: "/images/projects/ai/fraud-detection.png",
+    category: "AI & ML",
+    tags: ["Python", "ML", "FastAPI", "Real-Time"],
   },
   {
-    imgPath: "/images/logos/company-logo-4.png",
+    title: "E-Commerce Recommendation Engine",
+    description:
+      "Product recommendation system using collaborative filtering integrated with e-commerce backend.",
+    imgPath: "/images/projects/ai/recommendation-engine.png",
+    category: "AI & ML",
+    tags: ["Python", "ML", "API", "Analytics"],
   },
   {
-    imgPath: "/images/logos/company-logo-5.png",
+    title: "Computer Vision Suite",
+    description:
+      "YOLO object detection, fire detection, and quality control deployed via FastAPI services.",
+    imgPath: "/images/projects/ai/computer-vision.png",
+    category: "AI & ML",
+    tags: ["YOLO", "OpenCV", "FastAPI", "Python"],
   },
   {
-    imgPath: "/images/logos/company-logo-6.png",
+    title: "Drowsiness Detection System",
+    description:
+      "Real-time driver drowsiness detection using EAR algorithm with OpenCV and MediaPipe.",
+    imgPath: "/images/projects/ai/drowsiness-detector.jpeg",
+    category: "AI & ML",
+    tags: ["OpenCV", "MediaPipe", "Python"],
   },
   {
-    imgPath: "/images/logos/company-logo-7.png",
+    title: "Gesture to Speech",
+    description:
+      "Sign language to voice synthesis using MediaPipe hand tracking and Google TTS in real time.",
+    imgPath: "/images/project1.png",
+    category: "AI & ML",
+    tags: ["MediaPipe", "OpenCV", "Google TTS"],
   },
   {
-    imgPath: "/images/logos/company-logo-8.png",
+    title: "HatiVision — Emotion Detection",
+    description:
+      "Voice AI text-to-speech with real-time emotion detection and sentiment analysis.",
+    imgPath: "/images/projects/ai/hativision-emotion.jpeg",
+    category: "AI & ML",
+    tags: ["Voice AI", "Emotion AI", "NLP"],
   },
   {
-    imgPath: "/images/logos/company-logo-9.png",
+    title: "AI Pustakawan — Library Chatbot",
+    description:
+      "RAG-based chatbot answering questions about books and academic resources with context-aware AI.",
+    imgPath: "/images/projects/ai/ai-pustakawan.jpeg",
+    category: "AI & ML",
+    tags: ["RAG", "LLM", "Chatbot", "Laravel"],
+  },
+  // Web Apps
+  {
+    title: "E-Library Primagraha",
+    description:
+      "Digital library platform with AI assistant, book catalog, badge gamification, and BANPT reporting.",
+    imgPath: "/images/projects/web/elibrary-badge-admin.jpeg",
+    category: "Web Apps",
+    tags: ["Laravel", "AI Chatbot", "PostgreSQL"],
   },
   {
-    imgPath: "/images/logos/company-logo-10.png",
+    title: "WarunkConnect Analytics",
+    description:
+      "Business dashboard with revenue analytics, portfolio tracking, and growth metrics.",
+    imgPath: "/images/projects/web/warunkconnect-analytics.png",
+    category: "Web Apps",
+    tags: ["Ruby on Rails", "PostgreSQL", "Dashboard"],
   },
   {
-    imgPath: "/images/logos/company-logo-11.png",
+    title: "E-Learning Platform",
+    description:
+      "Rails 8 e-learning system with role-based auth, audit trail, and Quran memorization tracking.",
+    imgPath: "/images/projects/web/elearning-dashboard.jpeg",
+    category: "Web Apps",
+    tags: ["Rails 8", "PostgreSQL", "Devise"],
+  },
+  {
+    title: "TagihIn — Invoice Platform",
+    description:
+      "Fintech SaaS for SMEs with QRIS integration, bank transfers, and automated payment tracking.",
+    imgPath: "/images/projects/web/tagihin.jpeg",
+    category: "Web Apps",
+    tags: ["Fintech", "Payment API", "QRIS"],
+  },
+  {
+    title: "Youcare Healthcare Dashboard",
+    description:
+      "Medical records dashboard with health trend charts, patient reports, and checkup scheduling.",
+    imgPath: "/images/projects/web/youcare.jpeg",
+    category: "Web Apps",
+    tags: ["Healthcare", "Dashboard", "React"],
+  },
+  {
+    title: "E-Commerce AI Dashboard",
+    description:
+      "AI-powered sales projection, inventory forecasting, and customer behavior insights.",
+    imgPath: "/images/projects/web/ecommerce-dashboard.png",
+    category: "Web Apps",
+    tags: ["Next.js", "AI Analytics", "Dashboard"],
+  },
+  {
+    title: "Rumah Jurnal",
+    description:
+      "Academic journal management with submission workflows and peer review tracking.",
+    imgPath: "/images/projects/web/rumah-jurnal.png",
+    category: "Web Apps",
+    tags: ["Full-Stack", "Academic", "CMS"],
+  },
+  {
+    title: "QuickCount System",
+    description:
+      "Real-time election vote counting with district-level breakdown and automated tabulation.",
+    imgPath: "/images/projects/web/quickcount.png",
+    category: "Web Apps",
+    tags: ["PHP", "JavaScript", "Real-Time"],
+  },
+  // Mobile & IoT
+  {
+    title: "Smart DPRD Banten",
+    description:
+      "Government mobile app for the Banten Provincial Legislature with session and document management.",
+    imgPath: "/images/projects/mobile/smart-dprd-menu.png",
+    category: "Mobile & IoT",
+    tags: ["Android", "Kotlin", "Government"],
+  },
+  {
+    title: "ShareCar Platform",
+    description:
+      "Peer-to-peer car sharing app with vehicle listings, booking, and detailed specifications.",
+    imgPath: "/images/projects/mobile/sharecar-detail.jpeg",
+    category: "Mobile & IoT",
+    tags: ["Android", "Kotlin", "Firebase"],
+  },
+  {
+    title: "Quran Companion",
+    description:
+      "Islamic mobile app with complete Quran surah collection, audio recitation, and bookmarks.",
+    imgPath: "/images/projects/mobile/quran-flutter.jpeg",
+    category: "Mobile & IoT",
+    tags: ["Flutter", "Dart", "Mobile"],
+  },
+  {
+    title: "IoT Sensor Dashboard",
+    description:
+      "Real-time UV and IR sensor monitoring built with Arduino and Thinger.io cloud platform.",
+    imgPath: "/images/projects/iot/sensor-dashboard.png",
+    category: "Mobile & IoT",
+    tags: ["Arduino", "IoT", "Thinger.io"],
   },
 ];
 
-const abilities = [
+// ===== CERTIFICATIONS =====
+const certifications = [
   {
-    imgPath: "/images/seo.png",
-    title: "Quality Focus",
-    desc: "Delivering high-quality results while maintaining attention to every detail.",
+    title: "Bootcamp Python, SQL & Machine Learning",
+    issuer: "2024 Certification Program",
+    imgPath: "/images/certs/bootcamp-python-ml.png",
+    year: "2024",
   },
   {
-    imgPath: "/images/chat.png",
-    title: "Reliable Communication",
-    desc: "Keeping you updated at every step to ensure transparency and clarity.",
+    title: "Speaker — Bootcamp Code & Prompt AI",
+    issuer: "AI Training Workshop 2025",
+    imgPath: "/images/certs/lomba-website-umkm.jpeg",
+    year: "2025",
   },
   {
-    imgPath: "/images/time.png",
-    title: "On-Time Delivery",
-    desc: "Making sure projects are completed on schedule, with quality & attention to detail.",
-  },
-];
-
-const techStackImgs = [
-  {
-    name: "React Developer",
-    imgPath: "/images/logos/react.png",
-  },
-  {
-    name: "Python Developer",
-    imgPath: "/images/logos/python.svg",
-  },
-  {
-    name: "Backend Developer",
-    imgPath: "/images/logos/node.png",
-  },
-  {
-    name: "Interactive Developer",
-    imgPath: "/images/logos/three.png",
-  },
-  {
-    name: "Project Manager",
-    imgPath: "/images/logos/git.svg",
-  },
-];
-
-const techStackIcons = [
-  {
-    name: "React Developer",
-    modelPath: "/models/react_logo-transformed.glb",
-    scale: 1,
-    rotation: [0, 0, 0],
-  },
-  {
-    name: "Python Developer",
-    modelPath: "/models/python-transformed.glb",
-    scale: 0.8,
-    rotation: [0, 0, 0],
-  },
-  {
-    name: "Backend Developer",
-    modelPath: "/models/node-transformed.glb",
-    scale: 5,
-    rotation: [0, -Math.PI / 2, 0],
-  },
-  {
-    name: "Interactive Developer",
-    modelPath: "/models/three.js-transformed.glb",
-    scale: 0.05,
-    rotation: [0, 0, 0],
-  },
-  {
-    name: "Project Manager",
-    modelPath: "/models/git-svg-transformed.glb",
-    scale: 0.05,
-    rotation: [0, -Math.PI / 4, 0],
+    title: "Website Competition — ITsDay 2025",
+    issuer: "UMKM Website Development Award",
+    imgPath: "/images/certs/lomba-website-team.jpg",
+    year: "2025",
   },
 ];
 
 const expCards = [
   {
-    review: "Adrian brought creativity and technical expertise to the team, significantly improving our frontend performance. His work has been invaluable in delivering faster experiences.",
-    imgPath: "/images/exp1.png",
+    review:
+      "Azka demonstrated exceptional ability in integrating AI solutions into our digital library platform. His deep understanding of LLMs and production systems significantly transformed our user experience.",
+    imgPath: "/images/work/presentation-sikn.jpeg",
     logoPath: "/images/logo1.png",
-    title: "Frontend Developer",
-    date: "January 2023 - Present",
+    title: "AI Software Engineer",
+    date: "January 2024 - Present",
     responsibilities: [
-      "Developed and maintained user-facing features for the Hostinger website.",
-      "Collaborated closely with UI/UX designers to ensure seamless user experiences.",
-      "Optimized web applications for maximum speed and scalability.",
+      "Architected and deployed LLM-powered features including AI Library Assistant serving thousands of university users in production.",
+      "Designed intelligent AI pipelines integrating OpenAI, LangChain, RAG, and custom fine-tuned models for document analysis and chatbot systems.",
+      "Reduced inference latency by 40% through model optimization, vector database caching, and smart retrieval strategies.",
+      "Built AI fraud detection, recommendation engines, and computer vision systems deployed as production microservices.",
     ],
   },
   {
-    review: "Adrian’s contributions to Docker's web applications have been outstanding. He approaches challenges with a problem-solving mindset.",
-    imgPath: "/images/exp2.png",
+    review:
+      "Azka's full-stack expertise transformed our web infrastructure. He consistently delivered scalable, high-performance applications that exceeded our technical benchmarks.",
+    imgPath: "/images/work/meeting-ecommerce.jpeg",
     logoPath: "/images/logo2.png",
-    title: "Full Stack Developer",
-    date: "June 2020 - December 2023",
+    title: "Full-Stack Software Engineer",
+    date: "June 2023 - December 2023",
     responsibilities: [
-      "Led the development of Docker's web applications, focusing on scalability.",
-      "Worked with backend engineers to integrate APIs seamlessly with the frontend.",
-      "Contributed to open-source projects that were used with the Docker ecosystem.",
+      "Built and shipped end-to-end web applications using React, Next.js, Ruby on Rails, and Laravel for clients across education, fintech, and healthcare.",
+      "Engineered RESTful APIs and database architectures handling 10K+ concurrent requests with 99.9% uptime.",
+      "Developed E-Library platform, WarunkConnect business dashboard, and E-Learning systems serving real institutional users.",
+      "Implemented CI/CD pipelines and deployed applications on Docker and cloud infrastructure.",
     ],
   },
   {
-    review: "Adrian’s work on Appwrite’s mobile app brought a high level of quality and efficiency. He delivered solutions that enhanced our mobile experience & meet our product goals.",
-    imgPath: "/images/exp3.png",
+    review:
+      "Azka brought innovation to government digital transformation with his engineering skills. His ability to bridge software development and institutional needs is truly impressive.",
+    imgPath: "/images/work/rakor-sikn.jpeg",
     logoPath: "/images/logo3.png",
-    title: "React Native Developer",
-    date: "March 2019 - May 2020",
+    title: "Software Engineer — Government IT",
+    date: "January 2023 - May 2023",
     responsibilities: [
-      "Built cross-platform mobile apps using React Native, integrating with Appwrite's backend services.",
-      "Improved app performance and user experience through code optimization and testing.",
-      "Coordinated with the product team to implement features based on feedback.",
+      "Developed Smart DPRD mobile application for the Banten Provincial Legislature, digitizing legislative workflows.",
+      "Built dynamic archive management system for Biro Hukum Banten, streamlining government document processing.",
+      "Engineered IoT sensor monitoring dashboards and QuickCount election systems with real-time data processing.",
+      "Collaborated with cross-functional government teams to deliver accessible, production-ready digital solutions.",
     ],
   },
 ];
 
 const expLogos = [
-  {
-    name: "logo1",
-    imgPath: "/images/logo1.png",
-  },
-  {
-    name: "logo2",
-    imgPath: "/images/logo2.png",
-  },
-  {
-    name: "logo3",
-    imgPath: "/images/logo3.png",
-  },
+  { name: "logo1", imgPath: "/images/logo1.png" },
+  { name: "logo2", imgPath: "/images/logo2.png" },
+  { name: "logo3", imgPath: "/images/logo3.png" },
 ];
 
 const testimonials = [
@@ -204,63 +299,110 @@ const testimonials = [
     name: "Esther Howard",
     mentions: "@estherhoward",
     review:
-      "I can’t say enough good things about Adrian. He was able to take our complex project requirements and turn them into a seamless, functional website. His problem-solving abilities are outstanding.",
+      "Azka built an AI chatbot for our university library that reduced support tickets by 50%. His understanding of RAG architecture and how to integrate LLMs into real products is on another level.",
     imgPath: "/images/client1.png",
   },
   {
     name: "Wade Warren",
     mentions: "@wadewarren",
     review:
-      "Working with Adrian was a fantastic experience. He transformed our outdated website into a modern, user-friendly platform. His attention to detail and commitment to quality are unmatched. Highly recommend him for any web dev projects.",
+      "We needed someone who could handle both the AI and the full-stack side. Azka delivered on both fronts. He deployed an LLM-powered recommendation engine that boosted user engagement by 35%.",
     imgPath: "/images/client3.png",
   },
   {
     name: "Guy Hawkins",
     mentions: "@guyhawkins",
     review:
-      "Collaborating with Adrian was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. Adrian's enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, Adrian is the ideal partner.",
+      "Azka built our entire ML pipeline from scratch and integrated it seamlessly with our Rails backend. If you need an engineer who truly understands both AI and software architecture, Azka is the one.",
     imgPath: "/images/client2.png",
   },
   {
     name: "Marvin McKinney",
     mentions: "@marvinmckinney",
     review:
-      "Adrian was a pleasure to work with. He turned our outdated website into a fresh, intuitive platform that’s both modern and easy to navigate. Fantastic work overall.",
+      "What impressed me most is his speed. He shipped a fully functional AI-powered document analyzer in just 3 weeks. Clean code, scalable architecture, zero bugs in production.",
     imgPath: "/images/client5.png",
   },
   {
     name: "Floyd Miles",
     mentions: "@floydmiles",
     review:
-      "Adrian’s expertise in web development is truly impressive. He delivered a robust and scalable solution for our e-commerce site, and our online sales have significantly increased since the launch. He’s a true professional!",
+      "Azka integrated computer vision and NLP into our mobile app, transforming it into something our users love. Downloads increased 200% after launch.",
     imgPath: "/images/client4.png",
   },
   {
     name: "Albert Flores",
     mentions: "@albertflores",
     review:
-      "Adrian was a pleasure to work with. He understood our requirements perfectly and delivered a website that exceeded our expectations. His skills in both frontend and backend dev are top-notch.",
+      "We hired Azka to build an intelligent fraud detection system using machine learning. He delivered ahead of schedule with accuracy that exceeded our benchmarks.",
     imgPath: "/images/client6.png",
   },
 ];
 
+const abilities = [
+  {
+    imgPath: "/images/seo.png",
+    title: "AI-First Engineering",
+    desc: "Building production-grade AI systems with LLMs, computer vision, and NLP that solve real business problems at scale.",
+  },
+  {
+    imgPath: "/images/chat.png",
+    title: "End-to-End Delivery",
+    desc: "From ML pipeline to polished UI — I own the full stack. No handoffs, no gaps, just shipped products that serve real users.",
+  },
+  {
+    imgPath: "/images/time.png",
+    title: "Ship Fast, Ship Right",
+    desc: "Rapid prototyping to production deployment. I deliver AI-powered features in weeks, not months — with clean, maintainable code.",
+  },
+];
+
+const techStackImgs = [
+  { name: "React Developer", imgPath: "/images/logos/react.png" },
+  { name: "Python Developer", imgPath: "/images/logos/python.svg" },
+  { name: "Backend Developer", imgPath: "/images/logos/node.png" },
+  { name: "Interactive Developer", imgPath: "/images/logos/three.png" },
+  { name: "Project Manager", imgPath: "/images/logos/git.svg" },
+];
+
+const techStackIcons = [
+  {
+    name: "React & Next.js",
+    modelPath: "/models/react_logo-transformed.glb",
+    scale: 1,
+    rotation: [0, 0, 0],
+  },
+  {
+    name: "Python & AI/ML",
+    modelPath: "/models/python-transformed.glb",
+    scale: 0.8,
+    rotation: [0, 0, 0],
+  },
+  {
+    name: "Node.js & APIs",
+    modelPath: "/models/node-transformed.glb",
+    scale: 5,
+    rotation: [0, -Math.PI / 2, 0],
+  },
+  {
+    name: "Three.js & WebGL",
+    modelPath: "/models/three.js-transformed.glb",
+    scale: 0.05,
+    rotation: [0, 0, 0],
+  },
+  {
+    name: "Git & DevOps",
+    modelPath: "/models/git-svg-transformed.glb",
+    scale: 0.05,
+    rotation: [0, -Math.PI / 4, 0],
+  },
+];
+
 const socialImgs = [
-  {
-    name: "insta",
-    imgPath: "/images/insta.png",
-  },
-  {
-    name: "fb",
-    imgPath: "/images/fb.png",
-  },
-  {
-    name: "x",
-    imgPath: "/images/x.png",
-  },
-  {
-    name: "linkedin",
-    imgPath: "/images/linkedin.png",
-  },
+  { name: "insta", imgPath: "/images/insta.png" },
+  { name: "fb", imgPath: "/images/fb.png" },
+  { name: "x", imgPath: "/images/x.png" },
+  { name: "linkedin", imgPath: "/images/linkedin.png" },
 ];
 
 export {
@@ -275,4 +417,7 @@ export {
   techStackIcons,
   techStackImgs,
   navLinks,
+  projects,
+  projectCategories,
+  certifications,
 };

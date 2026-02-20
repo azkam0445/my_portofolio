@@ -36,6 +36,18 @@ section {
   .flex-col-center {
     @apply flex flex-col justify-center items-center;
   }
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
 }
 
 @layer components {
@@ -96,10 +108,6 @@ section {
 
   .hero-badge {
     @apply bg-black-200 py-2 px-4 rounded-full w-fit text-sm md:text-base text-nowrap;
-  }
-
-  .hero-3d-layout {
-    @apply xl:w-[70%] w-full h-full min-h-[50vh] absolute xl:-top-20 top-24 xl:-right-20 right-0;
   }
 
   .navbar {
@@ -189,11 +197,11 @@ section {
       @apply flex md:flex-row flex-col xl:flex-col gap-10 xl:w-[40%];
 
       .image-wrapper {
-        @apply xl:h-[37vh] md:h-52 lg:h-72 h-64 relative rounded-xl xl:px-5 2xl:px-12 py-0;
+        @apply xl:h-[37vh] md:h-52 lg:h-72 h-64 relative rounded-xl overflow-hidden;
       }
 
       img {
-        @apply w-full h-full object-contain rounded-xl;
+        @apply w-full h-full object-cover rounded-xl;
       }
 
       h2 {
@@ -210,7 +218,7 @@ section {
     @apply px-4 py-4 rounded-lg bg-black-200 flex justify-center items-center relative cursor-pointer overflow-hidden;
 
     .bg-circle {
-      @apply absolute -right-10 origin-center top-1/2 -translate-y-1/2 
+      @apply absolute -right-10 origin-center top-1/2 -translate-y-1/2
         w-[120%] h-[120%] group-hover:size-10 group-hover:right-10
         rounded-full bg-white-50 transition-all duration-500;
     }
@@ -221,7 +229,7 @@ section {
     }
 
     .arrow-wrapper {
-      @apply group-hover:bg-white-50 size-10 rounded-full absolute right-10 top-1/2 
+      @apply group-hover:bg-white-50 size-10 rounded-full absolute right-10 top-1/2
         -translate-y-1/2 flex justify-center items-center overflow-hidden;
 
       img {
@@ -319,6 +327,67 @@ section {
         @apply inline-block;
       }
     }
+  }
+
+  /* ===== PROJECTS GALLERY ===== */
+  .project-grid {
+    @apply grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-7;
+    perspective: 1200px;
+  }
+
+  .project-card {
+    @apply relative rounded-2xl overflow-hidden;
+    background: #0e0e10;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    transition: transform 0.3s ease, border-color 0.5s ease, box-shadow 0.5s ease;
+    will-change: transform;
+  }
+
+  .project-card:hover {
+    border-color: rgba(255, 255, 255, 0.15);
+    box-shadow:
+      0 0 40px -10px rgba(100, 130, 255, 0.1),
+      0 25px 50px -12px rgba(0, 0, 0, 0.6);
+  }
+
+  /* Image container — dark bg, centered, object-contain so nothing gets cropped */
+  .project-card-img {
+    @apply flex items-center justify-center overflow-hidden rounded-t-2xl;
+    aspect-ratio: 4 / 3;
+    background: linear-gradient(145deg, #111118 0%, #0a0a12 100%);
+  }
+
+  /* Filter tabs */
+  .project-tab {
+    @apply flex items-center px-5 py-2.5 rounded-full text-sm font-medium cursor-pointer;
+    border: 1px solid transparent;
+    transition: all 0.3s ease;
+  }
+
+  .project-tab-active {
+    background: linear-gradient(135deg, rgba(100, 120, 255, 0.15), rgba(140, 100, 255, 0.1));
+    border-color: rgba(120, 130, 255, 0.3);
+    color: white;
+    box-shadow: 0 0 20px -5px rgba(100, 120, 255, 0.2);
+  }
+
+  .project-tab-inactive {
+    @apply text-white-50/60;
+    background: rgba(255, 255, 255, 0.03);
+    border-color: rgba(255, 255, 255, 0.06);
+  }
+
+  .project-tab-inactive:hover {
+    @apply text-white-50;
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+
+  /* ===== CERTIFICATIONS ===== */
+  .cert-card {
+    @apply relative cursor-pointer;
+    perspective: 800px;
+    transform-style: preserve-3d;
   }
 }
 
@@ -469,4 +538,107 @@ section {
 
 .card:hover::before {
   opacity: 1;
+}
+
+/* Sparkle bling bling */
+.sparkle {
+  opacity: 0;
+  animation: sparkle-twinkle infinite ease-in-out;
+}
+@keyframes sparkle-twinkle {
+  0%, 100% {
+    opacity: 0;
+    transform: scale(0.5);
+    box-shadow: 0 0 2px 1px rgba(255, 255, 255, 0.2);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+    box-shadow: 0 0 8px 4px rgba(255, 255, 255, 0.6),
+      0 0 16px 8px rgba(200, 220, 255, 0.2);
+  }
+}
+
+/* Video blend into background — fade all edges */
+.hero-video-blend {
+  mask-image: radial-gradient(
+    ellipse 80% 70% at 60% 50%,
+    black 30%,
+    transparent 70%
+  );
+  -webkit-mask-image: radial-gradient(
+    ellipse 80% 70% at 60% 50%,
+    black 30%,
+    transparent 70%
+  );
+}
+
+/* ===== ABOUT ME ===== */
+
+/* Big title base */
+.about-big-title {
+  font-family: "Mona Sans", sans-serif;
+  line-height: 0.85;
+  letter-spacing: -0.04em;
+}
+
+/* Text stroke — BEHIND the portrait (bold 3D outline) */
+.about-text-stroke {
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke: 2px rgba(139, 92, 246, 0.35);
+  text-shadow:
+    0 2px 0 rgba(91, 33, 182, 0.15),
+    0 4px 0 rgba(91, 33, 182, 0.1),
+    0 6px 0 rgba(91, 33, 182, 0.05),
+    0 0 60px rgba(139, 92, 246, 0.15),
+    0 0 120px rgba(139, 92, 246, 0.08);
+}
+
+@media (min-width: 768px) {
+  .about-text-stroke {
+    -webkit-text-stroke: 3px rgba(139, 92, 246, 0.4);
+    text-shadow:
+      0 3px 0 rgba(91, 33, 182, 0.2),
+      0 6px 0 rgba(91, 33, 182, 0.12),
+      0 9px 0 rgba(91, 33, 182, 0.06),
+      0 12px 20px rgba(0, 0, 0, 0.3),
+      0 0 80px rgba(139, 92, 246, 0.15),
+      0 0 160px rgba(139, 92, 246, 0.08);
+  }
+}
+
+/* Bold gradient text — IN FRONT of the portrait */
+.about-gradient-text-bold {
+  background: linear-gradient(
+    180deg,
+    #c4b5fd 0%,
+    #a78bfa 30%,
+    #7c3aed 70%,
+    #5b21b6 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 0 30px rgba(139, 92, 246, 0.3))
+    drop-shadow(0 4px 15px rgba(0, 0, 0, 0.5));
+}
+
+/* Stat cards */
+.about-stat-card {
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.04) 0%,
+    rgba(255, 255, 255, 0.01) 100%
+  );
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  transition: all 0.3s ease;
+}
+
+.about-stat-card:hover {
+  border-color: rgba(139, 92, 246, 0.2);
+  background: linear-gradient(
+    145deg,
+    rgba(139, 92, 246, 0.08) 0%,
+    rgba(59, 130, 246, 0.04) 100%
+  );
 }

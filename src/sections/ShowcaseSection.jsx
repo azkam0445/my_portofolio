@@ -2,33 +2,33 @@ import { useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
+import TitleHeader from "../components/TitleHeader";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const AppShowcase = () => {
   const sectionRef = useRef(null);
-  const rydeRef = useRef(null);
-  const libraryRef = useRef(null);
-  const ycDirectoryRef = useRef(null);
+  const project1Ref = useRef(null);
+  const project2Ref = useRef(null);
+  const project3Ref = useRef(null);
 
   useGSAP(() => {
-    // Animation for the main section
     gsap.fromTo(
       sectionRef.current,
       { opacity: 0 },
       { opacity: 1, duration: 1.5 }
     );
 
-    // Animations for each app showcase
-    const cards = [rydeRef.current, libraryRef.current, ycDirectoryRef.current];
+    const cards = [
+      project1Ref.current,
+      project2Ref.current,
+      project3Ref.current,
+    ];
 
     cards.forEach((card, index) => {
       gsap.fromTo(
         card,
-        {
-          y: 50,
-          opacity: 0,
-        },
+        { y: 50, opacity: 0 },
         {
           y: 0,
           opacity: 1,
@@ -46,39 +46,94 @@ const AppShowcase = () => {
   return (
     <div id="work" ref={sectionRef} className="app-showcase">
       <div className="w-full">
-        <div className="showcaselayout">
-          <div ref={rydeRef} className="first-project-wrapper">
+        <TitleHeader title="Engineered with Purpose" sub="Featured Work" />
+
+        <div className="showcaselayout mt-16">
+          {/* LEFT — Main featured project (tall container) */}
+          <div ref={project1Ref} className="first-project-wrapper">
             <div className="image-wrapper">
-              <img src="/images/project1.png" alt="Ryde App Interface" />
+              <img
+                src="/images/projects/ai/chatbot-rag.png"
+                alt="AI Chatbot with RAG"
+              />
             </div>
             <div className="text-content">
+              <div className="flex flex-wrap gap-2 mb-4">
+                <span className="px-3 py-1 text-xs font-medium rounded-full bg-violet-500/20 text-violet-300 border border-violet-500/30">
+                  LangChain
+                </span>
+                <span className="px-3 py-1 text-xs font-medium rounded-full bg-blue-500/20 text-blue-300 border border-blue-500/30">
+                  Pinecone
+                </span>
+                <span className="px-3 py-1 text-xs font-medium rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
+                  OpenAI
+                </span>
+                <span className="px-3 py-1 text-xs font-medium rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/30">
+                  Vector DB
+                </span>
+              </div>
               <h2>
-                On-Demand Rides Made Simple with a Powerful, User-Friendly App
-                called Ryde
+                AI Chatbot with RAG — Retrieval-Augmented Generation
+                for Intelligent Document Q&A
               </h2>
               <p className="text-white-50 md:text-xl">
-                An app built with React Native, Expo, & TailwindCSS for a fast,
-                user-friendly experience.
+                A production-ready chatbot that answers questions from uploaded
+                documents using Pinecone/Chroma vector databases, LLM APIs,
+                and role-based access control.
               </p>
             </div>
           </div>
 
+          {/* RIGHT — Two stacked projects */}
           <div className="project-list-wrapper overflow-hidden">
-            <div className="project" ref={libraryRef}>
-              <div className="image-wrapper bg-[#FFEFDB]">
+            <div className="project" ref={project2Ref}>
+              <div className="image-wrapper bg-[#0d1117]">
                 <img
-                  src="/images/project2.png"
-                  alt="Library Management Platform"
+                  src="/images/projects/web/elibrary-badge-admin.jpeg"
+                  alt="E-Library Primagraha"
                 />
               </div>
-              <h2>The Library Management Platform</h2>
+              <div className="flex flex-wrap gap-2 mt-4">
+                <span className="px-3 py-1 text-xs font-medium rounded-full bg-violet-500/20 text-violet-300 border border-violet-500/30">
+                  Laravel
+                </span>
+                <span className="px-3 py-1 text-xs font-medium rounded-full bg-blue-500/20 text-blue-300 border border-blue-500/30">
+                  AI Chatbot
+                </span>
+                <span className="px-3 py-1 text-xs font-medium rounded-full bg-cyan-500/20 text-cyan-300 border border-cyan-500/30">
+                  PostgreSQL
+                </span>
+              </div>
+              <h2>E-Library Primagraha — AI-Powered Digital Library</h2>
+              <p className="text-white-50 text-sm mt-1">
+                Full-featured digital library with AI assistant, badge
+                gamification, academic repository & BANPT reporting.
+              </p>
             </div>
 
-            <div className="project" ref={ycDirectoryRef}>
-              <div className="image-wrapper bg-[#FFE7EB]">
-                <img src="/images/project3.png" alt="YC Directory App" />
+            <div className="project" ref={project3Ref}>
+              <div className="image-wrapper bg-[#e8edf3]">
+                <img
+                  src="/images/projects/web/warunkconnect-analytics.png"
+                  alt="WarunkConnect Analytics"
+                />
               </div>
-              <h2>YC Directory - A Startup Showcase App</h2>
+              <div className="flex flex-wrap gap-2 mt-4">
+                <span className="px-3 py-1 text-xs font-medium rounded-full bg-red-500/20 text-red-300 border border-red-500/30">
+                  Ruby on Rails
+                </span>
+                <span className="px-3 py-1 text-xs font-medium rounded-full bg-blue-500/20 text-blue-300 border border-blue-500/30">
+                  PostgreSQL
+                </span>
+                <span className="px-3 py-1 text-xs font-medium rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
+                  Analytics
+                </span>
+              </div>
+              <h2>WarunkConnect — Business Analytics Dashboard</h2>
+              <p className="text-white-50 text-sm mt-1">
+                Revenue analytics, portfolio tracking & growth metrics
+                with real-time data visualization for businesses.
+              </p>
             </div>
           </div>
         </div>
