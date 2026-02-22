@@ -10,6 +10,7 @@ import Experience from "./sections/Experience";
 import Testimonials from "./sections/Testimonials";
 import Certifications from "./sections/Certifications";
 import AboutMe from "./sections/AboutMe";
+import BehindTheCode from "./sections/BehindTheCode";
 import Navbar from "./components/NavBar";
 
 const App = () => (
@@ -17,6 +18,7 @@ const App = () => (
     <Navbar />
     <Hero />
     <AboutMe />
+    <BehindTheCode />
     <ShowcaseSection />
     <ProjectsGallery />
     <LogoShowcase />

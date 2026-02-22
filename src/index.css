@@ -642,3 +642,141 @@ section {
     rgba(59, 130, 246, 0.04) 100%
   );
 }
+
+/* ===== BEHIND THE CODE ===== */
+
+.btc-gradient-text {
+  background: linear-gradient(
+    180deg,
+    #c4b5fd 0%,
+    #a78bfa 30%,
+    #7c3aed 70%,
+    #5b21b6 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 0 30px rgba(139, 92, 246, 0.3))
+    drop-shadow(0 4px 15px rgba(0, 0, 0, 0.5));
+}
+
+.btc-word {
+  display: inline-block;
+  will-change: transform, opacity;
+}
+
+/* Spinning conic gradient border */
+.btc-border-glow {
+  background: conic-gradient(
+    from 0deg,
+    transparent 0%,
+    rgba(139, 92, 246, 0.6) 8%,
+    rgba(99, 102, 241, 0.35) 14%,
+    transparent 22%,
+    transparent 42%,
+    rgba(168, 85, 247, 0.5) 48%,
+    rgba(79, 70, 229, 0.35) 54%,
+    transparent 62%,
+    transparent 82%,
+    rgba(139, 92, 246, 0.5) 88%,
+    rgba(99, 102, 241, 0.25) 94%,
+    transparent 100%
+  );
+  animation: btc-border-spin 4s linear infinite;
+}
+
+@keyframes btc-border-spin {
+  to { transform: rotate(360deg); }
+}
+
+/* HUD corner brackets */
+.btc-hud-corner {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  z-index: 20;
+  pointer-events: none;
+}
+
+.btc-hud-tl {
+  top: 10px; left: 10px;
+  border-left: 2px solid rgba(139, 92, 246, 0.5);
+  border-top: 2px solid rgba(139, 92, 246, 0.5);
+  animation: btc-hud-pulse 3s ease-in-out infinite;
+}
+
+.btc-hud-tr {
+  top: 10px; right: 10px;
+  border-right: 2px solid rgba(139, 92, 246, 0.5);
+  border-top: 2px solid rgba(139, 92, 246, 0.5);
+  animation: btc-hud-pulse 3s ease-in-out 0.75s infinite;
+}
+
+.btc-hud-bl {
+  bottom: 10px; left: 10px;
+  border-left: 2px solid rgba(139, 92, 246, 0.5);
+  border-bottom: 2px solid rgba(139, 92, 246, 0.5);
+  animation: btc-hud-pulse 3s ease-in-out 1.5s infinite;
+}
+
+.btc-hud-br {
+  bottom: 10px; right: 10px;
+  border-right: 2px solid rgba(139, 92, 246, 0.5);
+  border-bottom: 2px solid rgba(139, 92, 246, 0.5);
+  animation: btc-hud-pulse 3s ease-in-out 2.25s infinite;
+}
+
+@keyframes btc-hud-pulse {
+  0%, 100% { opacity: 0.25; }
+  50% { opacity: 0.9; }
+}
+
+/* Scanline overlay */
+.btc-scanline {
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.03) 2px,
+    rgba(0, 0, 0, 0.03) 4px
+  );
+}
+
+/* Holographic shimmer sweep */
+.btc-shimmer {
+  background: linear-gradient(
+    105deg,
+    transparent 40%,
+    rgba(139, 92, 246, 0.04) 45%,
+    rgba(255, 255, 255, 0.08) 50%,
+    rgba(139, 92, 246, 0.04) 55%,
+    transparent 60%
+  );
+  background-size: 200% 100%;
+  animation: btc-shimmer 5s ease-in-out infinite;
+}
+
+@keyframes btc-shimmer {
+  0%, 100% { background-position: 200% 0; }
+  50% { background-position: -200% 0; }
+}
+
+/* Floating animation for center frame */
+.btc-float {
+  animation: btc-float 6s ease-in-out infinite;
+}
+
+@keyframes btc-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+
+/* Slow zoom for background video */
+.btc-bg-zoom {
+  animation: btc-bg-zoom 20s ease-in-out infinite alternate;
+}
+
+@keyframes btc-bg-zoom {
+  from { transform: scale(1.05); }
+  to { transform: scale(1.12); }
+}
